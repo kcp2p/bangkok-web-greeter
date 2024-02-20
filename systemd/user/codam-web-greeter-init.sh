@@ -4,7 +4,7 @@
 set -e
 
 # Only run for users in the student or piscine group
-if ! /usr/bin/groups | /usr/bin/grep -qE '(student|piscine)'; then
+if ! /usr/bin/groups | /usr/bin/grep 'bangkok'; then
 	/usr/bin/echo "Not running for user $(/usr/bin/whoami)"
 	exit 0
 fi
