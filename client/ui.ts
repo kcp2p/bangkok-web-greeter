@@ -11,7 +11,7 @@ import { WelcomeScreenUI } from "./uis/screens/welcomescreen";
 
 export class UI {
 	public static readonly EXAM_MODE_CHECK_INTERVAL: number = 5 * 1000; // 5 seconds
-	public static readonly SHOW_EXAM_MODE_MINUTES_BEFORE_BEGIN: number = 20; // 20 minutes
+	public static readonly SHOW_EXAM_MODE_MINUTES_BEFORE_BEGIN: number = 30; // 30 minutes
 
 	private _infoBars: InfoBarsUI;
 	private _lockScreen: LockScreenUI | null = null;

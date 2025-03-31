@@ -48,8 +48,11 @@ export const getIpFromRequest = function(req: express.Request): string | null {
 }
 
 export const getHostNameFromRequest = async function(req: express.Request): Promise<string> {
-	let hostname = req.params.hostname ?? 'unknown';
-
+	let init_hostname = req.params.hostname ?? 'unknown';
+	let hostname = init_hostname;
+	if (!init_hostname.includes(".42bangkok.com")) {
+		hostname = init_hostname + ".42bangkok.com";
+	}
 	// If hostname is not defined, parse it from the IP address
 	if (hostname === 'unknown') {
 		const ip = getIpFromRequest(req);
@@ -116,13 +119,13 @@ export const getMessageForHostName = async function(hostName: string): Promise<s
 			console.warn('Could not parse messages.json, unable to find messages for host');
 			return "";
 		}
-	
+
 		// Find messages for host
 		// Any message with a key that the hostname starts with will be returned
 		const hostMessages = Object.entries(messagesJson)
 			.filter(([key]) => hostName.startsWith(key))
 			.map(([, message]) => message);
-	
+
 		// Combine all messages into one
 		return hostMessages.join('\n\n');
 	} catch (error) {
