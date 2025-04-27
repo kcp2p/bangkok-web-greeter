@@ -36,7 +36,7 @@ export class InfoBarsUI {
 		});
 
 		// Populate version info
-		this._infoElements.version.innerText = window.data.pkgName + " v" + window.data.pkgVersion;
+		this._infoElements.version.innerText = window.data.pkgName + " v" + window.data.pkgVersion + " forked from Codam College.";
 
 		// Populate hostname info
 		this._infoElements.hostname.innerText = window.data.hostname;
